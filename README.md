@@ -9,7 +9,7 @@ def merge_sort(arr):
 
     # Merge the sorted halves
     return merge(left_half, right_half)
-
+#its a merge function
 def merge(left, right):
     result = []
     i = j = 0
