@@ -1,40 +1,34 @@
-Beneath the moon’s uncertain glow,
-A fox once danced on fields of snow.
-The stars above began to hum,
-As trees swayed to a silent drum.
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
 
-A clock forgot to tick or chime,
-Suspended in the hands of time.
-A crow recited lines from Keats,
-While toads composed in minor beats.
+    # Split the array into two halves
+    mid = len(arr) // 2
+    left_half = merge_sort(arr[:mid])
+    right_half = merge_sort(arr[mid:])
 
-The rivers flowed with neon blue,
-And clouds wore shades of greenish hue.
-A fish once climbed a cherry tree,
-And sang a song in F sharp D.
+    # Merge the sorted halves
+    return merge(left_half, right_half)
 
-A suitcase fell from outer space,
-With socks that smelled of pumpkin lace.
-A child drew planets in the sand,
-That orbited upon command.
+def merge(left, right):
+    result = []
+    i = j = 0
 
-A mirror laughed and cracked a grin,
-Revealing galaxies within.
-A spider wove a web of gold,
-That whispered secrets brave and bold.
+    # Compare and merge
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
 
-The wind took shape, became a cat,
-It wore a monocle and hat.
-A mountain bowed to passing ants,
-Who ruled the rocks with battle chants.
+    # Append any remaining elements
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
 
-A book grew roots and sprouted leaves,
-Its pages danced upon the eaves.
-An old oak tree told bedtime tales,
-To drifting clouds and blushing whales.
-
-The stars grew tired and blinked to sleep,
-The earth let out a sigh so deep.
-And all the world, both wild and wise,
-Closed dreamlit eyes beneath the skies.
-
+# Example usage:
+arr = [38, 27, 43, 3, 9, 82, 10]
+sorted_arr = merge_sort(arr)
+print("Sorted array:", sorted_arr)
