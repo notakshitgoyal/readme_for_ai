@@ -28,7 +28,7 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
-# Example usage:
-arr = [38, 27, 43, 3, 9, 82, 10]
+# Example usage: for 8 elements
+arr = [38, 27, 43, 3, 9, 82, 10,18]
 sorted_arr = merge_sort(arr)
 print("Sorted array:", sorted_arr)
